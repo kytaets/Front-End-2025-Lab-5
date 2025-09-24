@@ -127,6 +127,7 @@ function escapeHtml(s) {
 }
 
 // --- Таблиця -----
+document.getElementById('variantNumber').textContent = VARIANT;
 const tableWrapper = document.getElementById('table-wrapper');
 const colorPicker = document.getElementById('colorPicker');
 
@@ -134,6 +135,7 @@ function buildTable() {
   const table = document.createElement('table');
   table.className = 'table6';
   let num = 1;
+
   for (let r = 0; r < 6; r++) {
     const tr = document.createElement('tr');
     for (let c = 0; c < 6; c++) {
@@ -142,16 +144,20 @@ function buildTable() {
       td.dataset.num = String(num);
       td.dataset.row = r;
       td.dataset.col = c;
-      // events
-      td.addEventListener('mouseenter', onCellHover);
-      td.addEventListener('mouseleave', onCellLeave);
-      td.addEventListener('click', onCellClick);
-      td.addEventListener('dblclick', onCellDblClick);
+
+      if (num === VARIANT) {
+        td.addEventListener('mouseenter', onCellHover);
+        td.addEventListener('mouseleave', onCellLeave);
+        td.addEventListener('click', onCellClick);
+        td.addEventListener('dblclick', onCellDblClick);
+      }
+
       tr.appendChild(td);
       num++;
     }
     table.appendChild(tr);
   }
+
   tableWrapper.innerHTML = '';
   tableWrapper.appendChild(table);
 }
@@ -167,25 +173,17 @@ function randomColor() {
 
 function onCellHover(e) {
   const td = e.currentTarget;
-  const n = Number(td.dataset.num);
-  if (n === VARIANT) {
-    td._savedBg = td.style.backgroundColor || '';
-    td.style.backgroundColor = randomColor();
-    td.classList.add('highlight-random');
-  }
+  td._savedBg = td.style.backgroundColor || '';
+  td.style.backgroundColor = randomColor();
+  td.classList.add('highlight-random');
 }
 
 function onCellLeave(e) {
   const td = e.currentTarget;
-  const n = Number(td.dataset.num);
-  if (n === VARIANT) {
-    if (!td.dataset.customColored) {
-      td.style.backgroundColor = td._savedBg || '';
-      td.classList.remove('highlight-random');
-    } else {
-      td.classList.remove('highlight-random');
-    }
+  if (!td.dataset.customColored) {
+    td.style.backgroundColor = td._savedBg || '';
   }
+  td.classList.remove('highlight-random');
 }
 
 function onCellClick(e) {
@@ -201,6 +199,7 @@ function onCellDblClick(e) {
   const chosenColor = colorPicker.value;
   const table = tableWrapper.querySelector('table');
   if (!table) return;
+
   for (let r = 0; r < table.rows.length; r++) {
     for (let c = colIndex; c < table.rows[r].cells.length; c += 2) {
       const cell = table.rows[r].cells[c];
