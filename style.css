@@ -1,0 +1,125 @@
+:root {
+  --accent: #2c7be5;
+  --danger: #e74c3c;
+  --muted: #666;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  padding: 20px;
+  background: #f7f9fc;
+  color: #111;
+}
+
+main {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h1 {
+  color: var(--accent);
+}
+
+section {
+  background: #fff;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  margin-bottom: 20px;
+}
+
+/* -------- Форма -------- */
+form {
+  max-width: 500px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+form input[type='text'],
+form input[type='email'] {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+}
+
+form input {
+  padding-bottom: 16px;
+}
+
+input.error {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.06);
+}
+
+.form-actions {
+  margin-top: 16px;
+}
+
+button {
+  padding: 8px 12px;
+  margin-right: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  font-size: 14px;
+}
+button#resetBtn {
+  background: #777;
+}
+
+.msg {
+  margin-top: 10px;
+  color: var(--danger);
+  font-weight: 500;
+}
+
+/* -------- Таблиця -------- */
+#table-wrapper {
+  margin-top: 12px;
+}
+
+.table6 {
+  border-collapse: collapse;
+}
+
+.table6 td {
+  width: 56px;
+  height: 56px;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.15s, transform 0.08s;
+}
+
+.table6 td:hover {
+  transform: translateY(-2px);
+}
+
+.controls {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+small {
+  color: var(--muted);
+}
+
+.highlight-random {
+  outline: 3px solid rgba(0, 0, 0, 0.06);
+}

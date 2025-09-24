@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <title>Лабораторна 5 — Варіант 8 — Токовенко В.В.</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Лабораторна робота №5 — Варіант 8</h1>
+
+      <section id="form-section">
+        <h2>Форма (ПІБ, Група, ID-card, Дата народж., E-mail)</h2>
+        <form id="labForm">
+          <div class="form-field">
+            <label for="fullname">ПІБ:</label>
+            <input type="text" id="fullname" name="fullname" />
+          </div>
+          <div class="form-field">
+            <label for="group">Група:</label>
+            <input type="text" id="group" name="group" />
+          </div>
+          <div class="form-field">
+            <label for="idcard">ID-card:</label>
+            <input type="text" id="idcard" name="idcard" />
+          </div>
+          <div class="form-field">
+            <label for="birthdate">Дата народж.:</label>
+            <input type="text" id="birthdate" name="birthdate" />
+          </div>
+          <div class="form-field">
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit">Перевірити / Надіслати</button>
+            <button type="button" id="resetBtn">Скинути</button>
+          </div>
+
+          <p id="formMessage" class="msg"></p>
+        </form>
+      </section>
+
+      <hr />
+
+      <section id="table-section">
+        <h2>Таблиця 6×6 (варіант = <strong id="variantNumber">8</strong>)</h2>
+        <div class="controls">
+          <label
+            >Виберіть колір:
+            <input type="color" id="colorPicker" value="#ffcc00" />
+          </label>
+          <small>Hover змінює випадковий колір саме для клітинки №8.</small>
+        </div>
+
+        <div id="table-wrapper"></div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
